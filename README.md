@@ -1,11 +1,19 @@
 # Weather App Service
 
+
+**[DEMO Weather App Web](https://jpalma-weather-app-frontend.herokuapp.com/login)** 
+**[DEMO Weather App API](https://jpalma-weather-app-backend.herokuapp.com/)** 
+
+
 ## Technologies
 - TypeScript
 - Node v16.14.2.
 - [Express](http://expressjs.com/) - base HTTP server
 - [TypeORM](https://typeorm.github.io/) - ORM/database/migrations
 - [Nest](https://nestjs.com/) - routing/request/reponse handling
+- Auth0
+- Docker
+- Heroku
 
 
 ## Env variable
@@ -132,3 +140,11 @@ heroku container:push web --app jpalma-weather-app-frbackendontend
 heroku container:release web --app jpalma-weather-app-backend
 
 heroku config:set PORT=$PORT AUTH0_ISSUER_URL=$AUTH0_ISSUER_URL AUTH0_AUDIENCE=$AUTH0_AUDIENCE WEATHER_API_BASE_URL=$WEATHER_API_BASE_URL WEATHER_API_KEY=$WEATHER_API_KEY --app <project-name
+
+Create heroku.yml
+```
+build:
+  docker:
+    web: Dockerfile
+
+```
