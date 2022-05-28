@@ -10,13 +10,13 @@ export class WeatherService {
     private configService: ConfigService,
   ) {}
 
-  async getWeather(): Promise<any> {
+  async getWeather(city: string): Promise<any> {
     const weatherData = await new Promise(async (resolve, reject) => {
       this.httpService
         .get(
           `${this.configService.get(
             'WEATHER_API_BASE_URL',
-          )}weather?q=${'Manila'},philippines&appid=${this.configService.get(
+          )}weather?q=${city},philippines&appid=${this.configService.get(
             'WEATHER_API_KEY',
           )}&units=imperial`,
         )

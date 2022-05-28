@@ -16,9 +16,10 @@ export class WeatherController {
   constructor(private readonly weatherService: WeatherService,
     private configService: ConfigService,) {}
 
-  @Get('')
+  @Get('/:city')
   @ApiOperation({ summary: 'Get weather' })
-  async getWeather(): Promise<any> {
-    return this.weatherService.getWeather();
+  async getWeather(
+    @Param('city') city: string,): Promise<any> {
+    return this.weatherService.getWeather(city);
   }
 }
