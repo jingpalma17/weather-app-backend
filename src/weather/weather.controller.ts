@@ -1,6 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOAuth2,
+  ApiOperation,
+  ApiTags,
+} from '@nestjs/swagger';
 
+@ApiOAuth2([])
+@ApiBearerAuth('access-token')
 @ApiTags('Weather')
 @Controller('weather')
 export class WeatherController {
