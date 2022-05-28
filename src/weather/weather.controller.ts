@@ -13,13 +13,14 @@ import { ConfigService } from '@nestjs/config';
 @ApiTags('Weather')
 @Controller('weather')
 export class WeatherController {
-  constructor(private readonly weatherService: WeatherService,
-    private configService: ConfigService,) {}
+  constructor(
+    private readonly weatherService: WeatherService,
+    private configService: ConfigService,
+  ) {}
 
   @Get('/:city')
   @ApiOperation({ summary: 'Get weather' })
-  async getWeather(
-    @Param('city') city: string,): Promise<any> {
+  async getWeather(@Param('city') city: string): Promise<any> {
     return this.weatherService.getWeather(city);
   }
 }
