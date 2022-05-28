@@ -1,73 +1,134 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Weather App Service
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Technologies
+- TypeScript
+- Node v16.14.2.
+- [Express](http://expressjs.com/) - base HTTP server
+- [TypeORM](https://typeorm.github.io/) - ORM/database/migrations
+- [Nest](https://nestjs.com/) - routing/request/reponse handling
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Env variable
+Create `.env` file based on `sample.env`.
+Fill up the correct configurations in `.env` file
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+```
+PORT=
+AUTH0_ISSUER_URL=
+AUTH0_AUDIENCE=
+WEATHER_API_BASE_URL=
+WEATHER_API_KEY=
 ```
 
-## Running the app
+## Quick Start
 
-```bash
-# development
-$ npm run start
+Get started developing...
 
-# watch mode
-$ npm run start:dev
+```shell
+# install deps
+npm install
 
-# production mode
-$ npm run start:prod
+# run in development mode
+npm run start:dev
+
+# run tests
+npm run test
 ```
 
-## Test
+---
 
-```bash
+## Install Dependencies
+
+npm install
+
+
+---
+
+## Run It
+#### Run in *development* mode:
+Runs the application is development mode. Should not be used in production
+
+```shell
+npm run start:dev
+```
+
+or debug it
+
+```shell
+npm run start:debug
+```
+
+#### Run in *production* mode:
+
+Compiles the application and starts it in production production mode.
+
+```shell
+npm run build
+npm run start
+```
+
+
+**API URL:** http://localhost:3000/api
+
+**Swagger Docs URL:** http://localhost:3000
+
+## Testing
+### Run automated tests
+
+```shell
 # unit tests
-$ npm run test
+npm run test
 
-# e2e tests
-$ npm run test:e2e
+# end-to-end tests
+npm run test:e2e
 
 # test coverage
-$ npm run test:cov
+npm run test:cov
 ```
 
-## Support
+## Debug It
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+#### Debug the server:
 
-## Stay in touch
+```
+npm run start:debug
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Debug Tests
 
-## License
+```
+npm run test:debug
+```
 
-Nest is [MIT licensed](LICENSE).
+## Generators
+> Note: Install nest-cli globally
+```shell
+npm install -g @nestjs/cli
+
+# Generate a new module
+nest generate module user
+
+# Generate a new controller
+nest generate controller user
+
+# Generate a new service
+nest generate service user
+```
+
+Here's the list of command in [Nest-cli Docs](https://docs.nestjs.com/cli/usages#nest-generate).
+
+## Development docs
+
+Additional documentation for developers of the service can be found in the [docs-folder](docs/).
+
+
+
+## Deploy to Heroku
+
+heroku create jpalma-weather-app-backend
+
+heroku container:push web --app jpalma-weather-app-frbackendontend
+
+heroku container:release web --app jpalma-weather-app-backend
+
+heroku config:set PORT=$PORT AUTH0_ISSUER_URL=$AUTH0_ISSUER_URL AUTH0_AUDIENCE=$AUTH0_AUDIENCE WEATHER_API_BASE_URL=$WEATHER_API_BASE_URL WEATHER_API_KEY=$WEATHER_API_KEY --app <project-name
