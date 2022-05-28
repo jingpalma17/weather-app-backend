@@ -4,9 +4,16 @@ import { AppService } from './app.service';
 import { WeatherController } from './weather/weather.controller';
 import { WeatherService } from './weather/weather.service';
 import { WeatherModule } from './weather/weather.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [WeatherModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: ['.env'],
+    }),
+    WeatherModule,
+  ],
   controllers: [AppController, WeatherController],
   providers: [AppService, WeatherService],
 })
