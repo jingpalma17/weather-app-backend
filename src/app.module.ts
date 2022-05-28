@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { WeatherController } from './weather/weather.controller';
-import { WeatherService } from './weather/weather.service';
 import { WeatherModule } from './weather/weather.module';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './auth/guard/jwt.guard';
 
 @Module({
   imports: [
@@ -13,8 +12,14 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath: ['.env'],
     }),
     WeatherModule,
+    AuthModule,
   ],
-  controllers: [AppController, WeatherController],
-  providers: [AppService, WeatherService],
+  controllers: [],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+  ],
 })
 export class AppModule {}
