@@ -18,7 +18,7 @@ export class WeatherService {
             'WEATHER_API_BASE_URL',
           )}weather?q=${'Manila'},philippines&appid=${this.configService.get(
             'WEATHER_API_KEY',
-          )}`,
+          )}&units=imperial`,
         )
         .subscribe(
           async (response) => {
