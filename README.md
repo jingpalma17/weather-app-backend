@@ -1,9 +1,9 @@
 # Weather App Service
 
 
-**[DEMO Weather App Web](https://jpalma-weather-app-frontend.herokuapp.com/login)** 
-**[DEMO Weather App API](https://jpalma-weather-app-backend.herokuapp.com/)** 
+**[DEMO Weather App Web](https://jpalma-weather-app-frontend.herokuapp.com/login)**
 
+**[DEMO Weather App API](https://jpalma-weather-app-backend.herokuapp.com/)** 
 
 ## Technologies
 - TypeScript
